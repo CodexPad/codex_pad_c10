@@ -48,19 +48,6 @@
 
 ---
 
-## 软件与兼容性
-
-| 硬件平台 | 支持的开发环境 |
-| :--- | :--- |
-| ESP32 | Arduino IDE, MicroPython，米思齐（mixly），Mind+ |
-| ESP32-S3 | Arduino IDE, MicroPython，米思齐（mixly），Mind+ |
-| ESP32-C3 | Arduino IDE, MicroPython，米思齐（mixly），Mind+ |
-| micro:bit | MakeCode |
-
-为上述平台提供完整的驱动库、文档及项目示例。
-
----
-
 ## 安装电池
 
 - 将手柄电源开关拨动至`OFF​`端关闭电源，切断电路，防止安装过程中发生短路或静电损坏器件
