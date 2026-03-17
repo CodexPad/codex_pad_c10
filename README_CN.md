@@ -301,11 +301,16 @@ CodexPad提供了两种灵活的主机连接方式，您可以根据开发场景
 
 适用于在 **Arduino IDE** 或 **PlatformIO** 中进行开发。
 
-| 硬件平台 |
+| 支持的硬件平台 |
 | :--- |
 | ESP32 |
+| ESP32-S2 |
 | ESP32-S3 |
 | ESP32-C3 |
+| ESP32-C5 |
+| ESP32-C6 |
+| ESP32-H2 |
+| ESP32-P4 |
 
 **详情链接**：<https://github.com/CodexPad/codex_pad_arduino_lib>
 
@@ -315,11 +320,23 @@ CodexPad提供了两种灵活的主机连接方式，您可以根据开发场景
 
 适用于在 **MicroPython** 固件上进行开发。
 
-| 硬件平台 |
+#### 支持的硬件平台
+
+**理论支持范围**：本库理论上支持所有**具备蓝牙功能**、并**运行了支持标准BLE接口的MicroPython固件**的硬件平台。您可以通过 [MicroPython官方下载页面（已筛选BLE功能）](https://micropython.org/download/?features=BLE)来查找和确认适合您设备的、支持蓝牙的官方固件。
+
+下表列出了我们已测试可用的部分硬件平台：
+
+| 支持的硬件平台 |
 | :--- |
 | ESP32 |
 | ESP32-S3 |
+| ESP32-C2 |
 | ESP32-C3 |
+| ESP32-C5 |
+| ESP32-C6 |
+| ESP32-P4 |
+| Raspberry Pi Pico W |
+| Raspberry Pi Pico 2 W |
 
 详情链接：<https://github.com/CodexPad/codex_pad_mpy_lib>
 
