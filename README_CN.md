@@ -299,7 +299,11 @@ CodexPad提供了两种灵活的主机连接方式，您可以根据开发场景
 | ESP32-H2 |
 | ESP32-P4 |
 
-**详情链接**：<https://github.com/CodexPad/codex_pad_arduino_lib>
+*请根据您所在的网络环境，选择以下任一链接下载查看，内容完全相同*：
+
+- [大陆版（Gitee）链接（推荐中国大陆用户使用)](https://gitee.com/CodexPad/codex_pad_arduino_lib#codexpad-arduino-lib)
+
+- [国际版（GitHub）链接](https://github.com/CodexPad/codex_pad_arduino_lib/blob/main/README_CN.md#codexpad-arduino-lib)
 
 ---
 
@@ -325,7 +329,11 @@ CodexPad提供了两种灵活的主机连接方式，您可以根据开发场景
 | Raspberry Pi Pico W |
 | Raspberry Pi Pico 2 W |
 
-详情链接：<https://github.com/CodexPad/codex_pad_mpy_lib>
+*请根据您所在的网络环境，选择以下任一链接下载查看，内容完全相同*：
+
+- [大陆版（Gitee）链接（推荐中国大陆用户使用)](https://gitee.com/CodexPad/codex_pad_mpy_lib#codexpad-micropython-lib)
+
+- [国际版（GitHub）链接](https://github.com/CodexPad/codex_pad_mpy_lib/blob/main/README_CN.md#codexpad-micropython-lib)
 
 ---
 
@@ -337,7 +345,11 @@ CodexPad提供了两种灵活的主机连接方式，您可以根据开发场景
 | :--- |
 | micro:bit |
 
-详情链接：<https://github.com/CodexPad/codex_pad_makecode_extension>
+*请根据您所在的网络环境，选择以下任一链接下载查看，内容完全相同*：
+
+- [大陆版（Gitee）链接（推荐中国大陆用户使用)](https://gitee.com/CodexPad/codex_pad_makecode_extension/blob/main/READMD_CN.md#codexpad-extension-for-microbit-makecode)
+
+- [国际版（GitHub）链接](https://github.com/CodexPad/codex_pad_makecode_extension/blob/main/READMD_CN.md#codexpad-extension-for-microbit-makecode)
 
 ---
 
