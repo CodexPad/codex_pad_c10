@@ -89,7 +89,7 @@
 
 ### 获取方法一(推荐)：通过元数据访问功能获取
 
-详细请参考[《CodexPad元数据访问功能》](../../../codex_pad_series_general_guide/blob/main/metadata_cn.md#codexpad元数据访问功能)
+详细操作方法请参阅 [《CodexPad元数据访问功能》](../../../codex_pad_series_general_guide/blob/main/metadata_cn.md#codexpad元数据访问功能) 文档。
 
 ### 获取方式二：通过Windows电脑的设备管理器获取
 
@@ -171,8 +171,4 @@
 
 本指南涵盖了 CodexPad-C10 的基本介绍和使用。关于更详细的**连接方式说明**、**完整的开发平台与库支持**以及**重要的通信协议信息**，请参阅 CodexPad 系列通用指南:
 
-**《CodexPad 系列通用指南》链接**：
-
-- [大陆版（Gitee）链接（推荐中国大陆用户查看)](https://gitee.com/CodexPad/codex_pad_series_general_guide#codexpad-%E7%B3%BB%E5%88%97%E9%80%9A%E7%94%A8%E6%8C%87%E5%8D%97)
-
-- [国际版（GitHub）链接](https://github.com/CodexPad/codex_pad_series_general_guide/blob/main/README_CN.md#codexpad-%E7%B3%BB%E5%88%97%E9%80%9A%E7%94%A8%E6%8C%87%E5%8D%97)
+[CodexPad系列通用指南](../../../codex_pad_series_general_guide/blob/main/README_CN.md#codexpad-系列通用指南)
