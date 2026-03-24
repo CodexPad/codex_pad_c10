@@ -12,13 +12,24 @@
 
 ## 产品外观图
 
-> TODO
-
+![codexpad_c10](assets/images/codexpad_c10.png)
 ---
 
 ## 产品部件示意图
 
-> TODO
+![产品部件示意图](assets/images/functional_illustration.jpg)
+
+## 规格参数
+
+- PCB厚度：1.6mm
+
+- 产品尺寸：48*100mm
+
+## 机械尺寸图
+
+![机械尺寸图](assets/images/dimension_drawing.png)
+
+<a href="assets/images/zip/codexpad_c10_3d.zip" download>点击下载3D文件</a>
 
 ## 输入设备规格
 
