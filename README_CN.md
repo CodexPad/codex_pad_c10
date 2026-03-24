@@ -87,107 +87,11 @@
 
 ## 获取Bluetooth Device Address(BD_ADDR)
 
-在连接与开发时，可能需要使用到设备的唯一标识：Bluetooth Device Address(BD_ADDR)。它如同设备的“身份证号”，若需指定连接本设备而非广播中的其他设备，将会使用到此信息
+### 获取方法一(推荐)：通过元数据访问功能获取
 
-> 💡 **重要提示：每台手柄均需单独获取**
->
-> 由于此类手柄的Bluetooth Device Address(BD_ADDR)都是全球唯一的，因此每台新手柄在使用前，都需要按照此章节的步骤重新获取并记录其专属的Bluetooth Device Address。请勿误以为获取一次即可通用于所有手柄。
+详细请参考[《CodexPad元数据访问功能》](../../../codex_pad_series_general_guide/blob/main/metadata_cn.md#codexpad元数据访问功能)
 
-请确保手柄已**开机**，并使用USB-Type C数据线将其与电脑连接，然后使用以下方式获取Bluetooth Device Address并妥善保存。
-
-### 工作原理
-
-当您使用USB数据线将手柄连接到电脑时，手柄会**虚拟成一个标准的串口设备（COM端口）**。获取Bluetooth Device Address的本质，就是通过任意串口工具与这个虚拟串口进行通信。
-
-**通信参数与流程：**
-
-- **通用性**：任何串口工具（网页版、Windows、macOS、Linux）在正确配置后均可使用
-- **关键配置**：波特率可任意设置，但务必使能DTR信号
-- **自动应答**：连接成功后，手柄自动上报包含Bluetooth Device Address(BD_ADDR)的元数据信息
-
-理解此原理后，您可以根据自身喜好和操作系统，选择下方任意一种工具进行操作。
-
----
-
-### 获取方式1：使用网页串口工具获取
-
-1. 确保手柄已**开机**并已通过USB连接到电脑
-
-2. 打开浏览器访问：<https://terminal.spacehuhn.com/>
-
-3. 点击屏幕中间的**CONNECT**图标
-
-4. 在弹出的设备列表中，选择以`CodexPad-C10`开头的设备，然后点击**连接**
-
-    ![assets/images/find_bluetooth_device_address/web_serial_tool/01_connect_device.png](assets/images/find_bluetooth_device_address/web_serial_tool/01_connect_device.png)
-
-5. 连接成功后，内容框会打印设备信息。在其中找到标识为 `7. Mac Address:`或者`7. Bluetooth Device Address(BD_ADDR):`的一行，将其后的内容复制并妥善保存，例如：`E4:66:E5:A2:24:5D`
-
-    ![assets/images/find_bluetooth_device_address/web_serial_tool/02_find_bluetooth_device_address.png](assets/images/find_bluetooth_device_address/web_serial_tool/02_find_bluetooth_device_address.png)
-
-6. 断开手柄与电脑的连接
-
----
-
-### 获取方式2：通过Windows电脑的串口调试助手获取
-
-此方法使用通用的串口调试工具与手柄通信，获取Bluetooth Device Address信息。
-
-1. 安装串口调试助手
-
-    - 访问串口调试助手下载页面：<https://apps.microsoft.com/detail/9nblggh43hdm?launch=true&hl=zh-cn&gl=cn>
-
-    - 自行下载安装适用于Windows的最新版本
-
-2. 启动串口调试助手
-
-    - 安装完成后在桌面或开始菜单找到并启动程序
-
-3. 配置串口连接
-
-    - 选择正确的COM端口
-
-        - 确保手柄已**开机**并已通过USB连接到电脑
-
-        - 在软件界面的“**端口名**”下拉菜单中，选择对应的COM端口（例如`COM172`）
-
-        - **如何确认哪个是手柄**：如果无法确定哪个端口对应手柄，您可以**拔掉手柄的USB线**，观察列表中哪个端口消失，**重新插上手柄**，观察哪个新出现的端口，该端口即对应您的手柄
-
-    - 配置串口参数
-
-        - **波特率**：可设置为任意值（如9600、115200等）
-
-        - **数据位**：8
-
-        - **停止位**：1
-
-        - **校验位**：None (无)
-
-        - **接收显示**：确保“十六进制显示”选项未勾选，以便查看文本格式的元数据
-
-    - 启用DTR信号
-
-        - 在软件界面中找到“**DTR**”选项，并点击启用它，选项会变为绿色
-
-    ![assets/images/find_bluetooth_device_address/windows_serial_debugger/01_configure.png](assets/images/find_bluetooth_device_address/windows_serial_debugger/01_configure.png)
-
-4. 连接并获取Bluetooth Device Address
-
-    - 完成上述配置后，点击“**打开**”按钮建立连接
-
-        ![assets/images/find_bluetooth_device_address/windows_serial_debugger/02_click_open.png](assets/images/find_bluetooth_device_address/windows_serial_debugger/02_click_open.png)
-
-    - 连接成功后，手柄会自动发送一次设备元数据，并显示在软件右侧的“**接收区**”
-
-    - 在接收区查看显示的数据找到标识为 `7. Mac Address:`或者`7. Bluetooth Device Address(BD_ADDR):`的一行，将其后的内容复制并妥善保存，例如：`E4:66:E5:A2:24:5D`
-
-        ![assets/images/find_bluetooth_device_address/windows_serial_debugger/03_find_bluetooth_device_address.png](assets/images/find_bluetooth_device_address/windows_serial_debugger/03_find_bluetooth_device_address.png)
-
-5. 断开手柄与电脑的连接
-
----
-
-### 获取方式3：通过Windows电脑的设备管理器获取
+### 获取方式二：通过Windows电脑的设备管理器获取
 
 1. 启动“**设备管理器**”
 
