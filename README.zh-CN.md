@@ -13,6 +13,7 @@
 ## 产品外观图
 
 ![codexpad_c10](assets/images/codexpad_c10.png)
+
 ---
 
 ## 产品部件示意图
@@ -98,11 +99,15 @@
 
 ## 获取Bluetooth Device Address(BD_ADDR)
 
+在与CodexPad连接时，可能需要使用到设备的**唯一**标识：**Bluetooth Device Address**。它如同设备的“身份证号”，由12位十六进制字符组成，以冒号分隔，格式为`XX:XX:XX:XX:XX:XX`（其中`X`为 0-9 或 A-F），例如：`E4:66:E5:A2:24:5D`。
+
 ### 获取方法一(推荐)：通过元数据访问功能获取
 
-详细操作方法请参阅 [《CodexPad元数据访问功能》](../../../codex_pad_series_general_guide/blob/main/metadata.zh-CN.md#codexpad元数据访问功能) 文档。
+详细操作方法请参阅 [CodexPad元数据访问功能](../../../codex_pad_guide/blob/main/metadata.zh-CN.md#codexpad元数据访问功能) 文档。
 
 ### 获取方式二：通过Windows电脑的设备管理器获取
+
+1. 使用**数据线**将CodexPad与电脑连接，并将CodexPad置于**开机**状态
 
 1. 启动“**设备管理器**”
 
@@ -120,25 +125,25 @@
 
             ![assets/images/find_bluetooth_device_address/windows_device_manager/01_02_02_select_device_manager.png](assets/images/find_bluetooth_device_address/windows_device_manager/01_02_02_select_device_manager.png)
 
-2. 展开端口列表
+1. 展开端口列表
 
    - 在设备管理器的设备列表中，找到并点击“**端口（COM和LPT）**”类别左侧的 “**>**” 符号，将其展开
 
         ![assets/images/find_bluetooth_device_address/windows_device_manager/02_expand_com_ports.png](assets/images/find_bluetooth_device_address/windows_device_manager/02_expand_com_ports.png)
 
-3. 识别您的手柄设备
+1. 识别您的手柄设备
 
     - 在展开的列表中，您会看到一个或多个名为“**USB 串行设备 (COMxx)**”的条目，其中xx代表数字
 
     - **如何确认哪个是手柄**：如果列表中有多个此类设备，您可以**拔掉手柄的USB线**，观察列表中哪个“USB 串行设备”条目消失；**重新插上手柄**，观察哪个新出现的条目，该条目即对应您的手柄。请记下其COM口号（例如：COM172）
 
-4. 打开设备属性
+1. 打开设备属性
 
     - 右键点击您所识别出的“**USB 串行设备 (COMxx)**”，在弹出的菜单中选择“**属性**”
 
         ![assets/images/find_bluetooth_device_address/windows_device_manager/03_right_click_properties.png](assets/images/find_bluetooth_device_address/windows_device_manager/03_right_click_properties.png)
 
-5. 查看设备详细信息
+1. 查看设备详细信息
 
     - 在弹出的属性窗口中，点击顶部的“**详细信息**”选项卡
 
@@ -146,7 +151,7 @@
 
         ![assets/images/find_bluetooth_device_address/windows_device_manager/04_select_instance_path.png](assets/images/find_bluetooth_device_address/windows_device_manager/04_select_instance_path.png)
 
-6. 记录Bluetooth Device Address
+1. 记录Bluetooth Device Address
 
     - 此时，“**值(V)**”下方的文本框中将显示一串信息
 
@@ -156,7 +161,7 @@
 
     - 请准确抄录这串Bluetooth Device Address并妥善保管，用于后续连接
 
-7. 断开手柄与电脑的连接
+1. 断开手柄与电脑的连接
 
 ---
 
@@ -178,8 +183,14 @@
 
 ---
 
-## 进一步了解与开发
+## 连接使用指南
 
-本指南涵盖了 CodexPad-C10 的基本介绍和使用。关于更详细的**连接方式说明**、**完整的开发平台与库支持**以及**重要的通信协议信息**，请参阅 CodexPad 系列通用指南:
+| 硬件平台特征 | 典型代表平台 | 文档 | 核心特点 |
+| :--- | :--- | :--- | :--- |
+| 主控自带BLE功能或者有BLE协处理器，</br>同时，软件可以自己调用底层BLE API进行设备连接 | <ul><li>ESP32</li><li>ESP32-S2</li><li>ESP32-S3</li><li>ESP32-C3</li><li>ESP32-C5</li><li>ESP32-C6</li><li>ESP32-H2</li><li>ESP32-P4</li><li>Raspberry Pi Pico W</li><li>Raspberry Pi Pico 2 W</li><li>micro:bit v2</li></ul> | [CodexPad连接使用指南：使用硬件平台内置BLE](../../../codex_pad_guide/blob/main/connection_guide_native_ble.zh-CN.md#codexpad连接使用指南使用硬件平台内置ble) | 无需外接模块，提供了库和示例，直接编程使用 |
+| 主控（如 STM32/Arduino）没有蓝牙，</br>需要外接蓝牙转串口模块（插在 TX/RX 引脚上） | <ul><li>Arduino UNO + NL16</li><li>BLE UNO(同Arduino UNO + NL16)</li><li>STM32 + HC05</li><li>Arduino UNO + HC05</li></ul> | [CodexPad连接使用指南：使用BLE转串口模块](../../../codex_pad_guide/blob/main/connection_guide_ble_uart.zh-CN.md#codexpad连接使用指南使用ble转串口模块) | **透传模式**，数据通过串口转发 |
+| 主控（如 STM32/Arduino）没有蓝牙，</br>需要在I2C总线上外接CodexPad专用接收器（开发中） | 任意支持I2C的硬件平台 | [CodexPad连接使用指南：使用专用的BLE转I2C接收器](../../../codex_pad_guide/blob/main/connection_guide_i2c_receiver.zh-CN.md#codexpad连接使用指南使用专用的ble转i2c接收器) | |
 
-[CodexPad系列通用指南](../../../codex_pad_series_general_guide/blob/main/README.zh-CN.md#codexpad-系列通用指南)
+## 注意事项
+
+[注意事项](../../../codex_pad_guide/blob/main/notice.zh-CN.md#注意事项)
