@@ -12,13 +12,13 @@
 
 ## 产品外观图
 
-![codexpad_c10](assets/images/codexpad_c10.png)
+![codexpad_c10](assets/images/zh-CN/codexpad_c10.png)
 
 ---
 
 ## 产品部件示意图
 
-![产品部件示意图](assets/images/functional_illustration.jpg)
+![产品部件示意图](assets/images/zh-CN/functional_illustration.jpg)
 
 ## 规格参数
 
@@ -28,9 +28,9 @@
 
 ## 机械尺寸图
 
-![机械尺寸图](assets/images/dimension_drawing.png)
+![机械尺寸图](assets/images/zh-CN/dimension_drawing.png)
 
-<a href="assets/images/zip/codexpad_c10_3d.zip" download>点击下载3D文件</a>
+<a href="assets/zip/codexpad_c10_3d.zip" download>点击下载3D文件</a>
 
 ## 输入设备规格
 
@@ -97,6 +97,14 @@
 
 ---
 
+## 自动关机说明
+
+为节省电池电量，手柄**V2.0及以上版本**会在**广播超时**后自动进入关机状态：
+
+- **广播超时关机**：手柄开机后，若持续处于**慢闪**（广播等待连接）状态**超过1分钟**仍未与任何设备建立连接，为最大限度延长纽扣电池使用寿命，手柄将自动关机。此时指示灯熄灭，需要将电源开关拨动至`OFF`再拨回`ON`才能重新开机。
+
+---
+
 ## 获取Bluetooth Device Address(BD_ADDR)
 
 在与CodexPad连接时，可能需要使用到设备的**唯一**标识：**Bluetooth Device Address**。它如同设备的“身份证号”，由12位十六进制字符组成，以冒号分隔，格式为`XX:XX:XX:XX:XX:XX`（其中`X`为 0-9 或 A-F），例如：`E4:66:E5:A2:24:5D`。
@@ -113,23 +121,23 @@
 
     - **启动方式1**：启动 “**开始**”菜单，输入 “**设备管理器**”。 然后，从搜索结果中选择“**设备管理器**”点击启动
 
-        ![assets/images/find_bluetooth_device_address/windows_device_manager/01_01_open_device_manager.png](assets/images/find_bluetooth_device_address/windows_device_manager/01_01_open_device_manager.png)
+        ![assets/images/find_bluetooth_device_address/windows_device_manager/01_01_open_device_manager.png](assets/images/zh-CN/find_bluetooth_device_address/windows_device_manager/01_01_open_device_manager.png)
 
     - **启动方式2**：通过“**文件资源管理器**”启动
 
         - 在文件资源管理器中，右键单击“**此电脑**”，选择“**管理**”
 
-            ![assets/images/find_bluetooth_device_address/windows_device_manager/01_02_01_right_click_computer_manage.png](assets/images/find_bluetooth_device_address/windows_device_manager/01_02_01_right_click_computer_manage.png)
+            ![assets/images/find_bluetooth_device_address/windows_device_manager/01_02_01_right_click_computer_manage.png](assets/images/zh-CN/find_bluetooth_device_address/windows_device_manager/01_02_01_right_click_computer_manage.png)
 
         - 然后从生成的对话框中列出的系统工具中选择 “**设备管理器**”
 
-            ![assets/images/find_bluetooth_device_address/windows_device_manager/01_02_02_select_device_manager.png](assets/images/find_bluetooth_device_address/windows_device_manager/01_02_02_select_device_manager.png)
+            ![assets/images/find_bluetooth_device_address/windows_device_manager/01_02_02_select_device_manager.png](assets/images/zh-CN/find_bluetooth_device_address/windows_device_manager/01_02_02_select_device_manager.png)
 
 1. 展开端口列表
 
    - 在设备管理器的设备列表中，找到并点击“**端口（COM和LPT）**”类别左侧的 “**>**” 符号，将其展开
 
-        ![assets/images/find_bluetooth_device_address/windows_device_manager/02_expand_com_ports.png](assets/images/find_bluetooth_device_address/windows_device_manager/02_expand_com_ports.png)
+        ![assets/images/find_bluetooth_device_address/windows_device_manager/02_expand_com_ports.png](assets/images/zh-CN/find_bluetooth_device_address/windows_device_manager/02_expand_com_ports.png)
 
 1. 识别您的手柄设备
 
@@ -141,7 +149,7 @@
 
     - 右键点击您所识别出的“**USB 串行设备 (COMxx)**”，在弹出的菜单中选择“**属性**”
 
-        ![assets/images/find_bluetooth_device_address/windows_device_manager/03_right_click_properties.png](assets/images/find_bluetooth_device_address/windows_device_manager/03_right_click_properties.png)
+        ![assets/images/find_bluetooth_device_address/windows_device_manager/03_right_click_properties.png](assets/images/zh-CN/find_bluetooth_device_address/windows_device_manager/03_right_click_properties.png)
 
 1. 查看设备详细信息
 
@@ -149,7 +157,7 @@
 
     - 在“**属性(P)**”下方的下拉菜单中，选择“**设备实例路径**”
 
-        ![assets/images/find_bluetooth_device_address/windows_device_manager/04_select_instance_path.png](assets/images/find_bluetooth_device_address/windows_device_manager/04_select_instance_path.png)
+        ![assets/images/find_bluetooth_device_address/windows_device_manager/04_select_instance_path.png](assets/images/zh-CN/find_bluetooth_device_address/windows_device_manager/04_select_instance_path.png)
 
 1. 记录Bluetooth Device Address
 
@@ -157,7 +165,7 @@
 
     - 在这串信息中，找到“**CODEXPAD-C10_**”字段，其后面紧跟的由冒号分隔的12位字符（例如：`E4:66:E5:A2:24:5D`）即为您手柄的Bluetooth Device Address
 
-        ![assets/images/find_bluetooth_device_address/windows_device_manager/05_find_bluetooth_device_address.png](assets/images/find_bluetooth_device_address/windows_device_manager/05_find_bluetooth_device_address.png)
+        ![assets/images/find_bluetooth_device_address/windows_device_manager/05_find_bluetooth_device_address.png](assets/images/zh-CN/find_bluetooth_device_address/windows_device_manager/05_find_bluetooth_device_address.png)
 
     - 请准确抄录这串Bluetooth Device Address并妥善保管，用于后续连接
 
