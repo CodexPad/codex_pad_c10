@@ -4,7 +4,7 @@
 
 ## Overview
 
-**CodexPad-C10** is a Bluetooth Low Energy controller from the CodexPad series, designed specifically for makers and embedded developers. Unlike conventional controllers that depend on an operating system’s Bluetooth stack, this product is **built for OS‑less hardware platforms**. It can establish peer‑to‑peer communication directly with bare‑metal BLE devices such as **ESP32**, **ESP32‑S**, **ESP32‑C**, **STM32**, **nRF**, **micro:bit**, **Raspberry Pi**, and similar boards — no operating system required. This makes it an out‑of‑the‑box remote physical input solution for robots, IoT devices, custom control panels, and more.
+**CodexPad-C10** is a Bluetooth Low Energy controller from the CodexPad series, designed specifically for makers and embedded developers. Unlike conventional controllers that depend on an operating system’s Bluetooth stack, this product **focuses on low‑barrier access to bare‑metal and lightweight runtime environments**, without the need for a heavy system layer. It can establish peer‑to‑peer communication directly with bare‑metal BLE devices such as **ESP32**, **ESP32‑S**, **ESP32‑C**, **STM32**, **nRF**, **micro:bit**, **Raspberry Pi**, and similar boards — no operating system required. This makes it an out‑of‑the‑box remote physical input solution for robots, IoT devices, custom control panels, and more.
 
 We provide a clean communication protocol, lightweight driver libraries, and a wide range of examples for supported platforms, so you can integrate the controller into your firmware quickly and focus on your core application.
 
@@ -75,6 +75,28 @@ We provide a clean communication protocol, lightweight driver libraries, and a w
 ## Installing the Shell
 
 - Once the battery is installed, immediately put the back cover back on and secure it. This **prevents your hands from directly touching the rear circuitry**, reducing the risk of damage from static electricity or short circuits.
+
+---
+
+## Officially Supported Platforms
+
+> **Note**: All hardware platforms listed in the table below are provided with official adaptation libraries and sample code, and developers can directly use the corresponding resources for rapid development.<br>
+> In theory, any hardware platform with standard BLE capability can communicate with this controller. If your platform is not included in the list, you may refer to the library implementations and communication protocols of existing supported platforms for self-porting. The official team will also continuously evaluate and expand support for new platforms based on market demand and technical roadmap.
+
+### Native BLE Main Controller Platform
+
+| Main Controller Hardware Platform | Development Environment and Languages |
+| :--- | :--- |
+| <ul><li>ESP32</li><li>ESP32-S2</li><li>ESP32-S3</li><li>ESP32-C3</li><li>ESP32-C5</li><li>ESP32-C6</li><li>ESP32-H2</li><li>ESP32-P4</li></ul> | <ul><li>Arduino IDE（C/C++）</li><li>MicroPython</li></ul> |
+| <ul><li>Raspberry Pi Pico W</li><li>Raspberry Pi Pico 2 W</li></ul> | <ul><li>MicroPython</li></ul> |
+| <ul><li>micro:bit v2</li></ul> | <ul><li>MakeCode</li></ul> |
+
+### External BLE Module Solution
+
+| Hardware Combination | Development Environment and Languages |
+| :--- | :--- |
+| <ul><li>Arduino UNO + NL16 Bluetooth Module</li></ul> | <ul><li>Arduino IDE（C/C++）</li></ul> |
+| <ul><li>BLE UNO（built‑in NL16 module）</li></ul> | <ul><li>Arduino IDE（C/C++）</li></ul> |
 
 ---
 
