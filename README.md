@@ -8,6 +8,15 @@
 
 We provide a clean communication protocol, lightweight driver libraries, and a wide range of examples for supported platforms, so you can integrate the controller into your firmware quickly and focus on your core application.
 
+> **⚠️ Important: This is NOT a plug‑and‑play game controller**
+>
+> The CodexPad-S10 **is not a BLE-HID device**, so it will NOT be automatically recognised by the operating system as a standard game controller like an Xbox or PlayStation pad. Therefore:
+>
+> - **❌ You CANNOT** simply pair it with Windows / macOS / Linux, a phone, or a game console and start playing games;
+> - **✅ You MUST** establish the Bluetooth connection **manually in code**, and parse the controller’s reported data (buttons, joysticks, etc.) yourself to obtain input.
+>
+> In other words, **every input must be actively read and handled by your own program** — the system does not perform the “button → keyboard / gamepad event” translation for you. This product is positioned as a **development‑oriented input device**, not a plug‑and‑play gaming peripheral for end users.
+
 ---
 
 ## Product Appearance
