@@ -4,16 +4,16 @@
 
 ## Overview
 
-**CodexPad-C10** is a Bluetooth Low Energy controller from the CodexPad series, designed specifically for makers and embedded developers. Unlike conventional controllers that depend on an operating system’s Bluetooth stack, this product **focuses on low‑barrier access to bare‑metal and lightweight runtime environments**, without the need for a heavy system layer. It can establish peer‑to‑peer communication directly with bare‑metal BLE devices such as **ESP32**, **ESP32‑S**, **ESP32‑C**, **STM32**, **nRF**, **micro:bit**, **Raspberry Pi**, and similar boards — no operating system required. This makes it an out‑of‑the‑box remote physical input solution for robots, IoT devices, custom control panels, and more.
+**CodexPad-C10** is a Bluetooth Low Energy gamepad from the CodexPad series, highly optimized for bare-metal and lightweight runtime environments. Unlike conventional gamepads that depend on an operating system’s Bluetooth stack, this product **focuses on low‑barrier access**. Utilizing an open, lightweight binary protocol, it can establish peer‑to‑peer communication directly with bare‑metal BLE devices such as **ESP32**, **ESP32‑S**, **ESP32‑C**, **STM32**, **nRF**, **micro:bit**, **Raspberry Pi**, and similar boards. This makes it an out‑of‑the‑box remote physical input solution for robots, IoT devices, custom control panels, and more.
 
-We provide a clean communication protocol, lightweight driver libraries, and a wide range of examples for supported platforms, so you can integrate the controller into your firmware quickly and focus on your core application.
+We provide a clean communication protocol, lightweight driver libraries, and a wide range of examples for supported platforms, so you can integrate the gamepad into your firmware quickly and focus on your core application.
 
-> **⚠️ Important: This is NOT a plug‑and‑play game controller**
+> **⚠️ Important: This is NOT a plug‑and‑play gamepad**
 >
-> The CodexPad-S10 **is not a BLE-HID device**, so it will NOT be automatically recognised by the operating system as a standard game controller like an Xbox or PlayStation pad. Therefore:
+> The CodexPad-C10 **is not a BLE-HID device**, so it will NOT be automatically recognised by the operating system as a standard gamepad like an Xbox or PlayStation gamepad. Therefore:
 >
 > - **❌ You CANNOT** simply pair it with Windows / macOS / Linux, a phone, or a game console and start playing games;
-> - **✅ You MUST** establish the Bluetooth connection **manually in code**, and parse the controller’s reported data (buttons, joysticks, etc.) yourself to obtain input.
+> - **✅ You MUST** establish the Bluetooth connection **manually in code**, and parse the gamepad’s reported data (buttons, joysticks, etc.) yourself to obtain input.
 >
 > In other words, **every input must be actively read and handled by your own program** — the system does not perform the “button → keyboard / gamepad event” translation for you. This product is positioned as a **development‑oriented input device**, not a plug‑and‑play gaming peripheral for end users.
 
@@ -33,7 +33,7 @@ We provide a clean communication protocol, lightweight driver libraries, and a w
 
 - PCB thickness: 1.6mm  
 
-- Product dimensions: 48*100mm
+- Product dimensions: 48 * 100mm
 
 ## Mechanical Dimension Drawing
 
@@ -62,8 +62,9 @@ We provide a clean communication protocol, lightweight driver libraries, and a w
 ## Connectivity and Protocol
 
 - Bluetooth version: Bluetooth Low Energy 5.3  
-- Transmission distance: up to 50 m (open area)  
-- Transmit power: **‑16 dBm** to **+6 dBm** (adjustable)  
+- Transmission distance: Up to 50 m (under optimal conditions; actual range depends on host Tx power, antenna gain, BLE PHY settings, and environmental factors)  
+- Transmit power: **0 ~ 6 dBm** (adaptive, automatically adjusted by the gamepad based on RSSI, no user configuration required)  
+- BLE PHY support: 1M, 2M, Coded S2, Coded S8  
 - Communication protocol: open, lightweight binary protocol optimized for embedded systems  
 - Supported role: BLE peripheral (slave)
 
@@ -73,9 +74,9 @@ We provide a clean communication protocol, lightweight driver libraries, and a w
 
 - Turn the power switch to `OFF` to cut off power and prevent short circuits or electrostatic damage during installation.
 
-- Carefully remove the back cover of the controller to expose the circuit board and battery clip.
+- Carefully remove the back cover of the gamepad to expose the circuit board and battery clip.
 
-- Turn the controller over so the **back faces up**.
+- Turn the gamepad over so the **back faces up**.
 
 - Insert a CR2032 coin cell battery with the **positive side (“+” marking) facing up**. Align it with the battery clip and slide it in until it clicks securely into place and will not fall out.
 
@@ -90,7 +91,7 @@ We provide a clean communication protocol, lightweight driver libraries, and a w
 ## Officially Supported Platforms
 
 > **Note**: All hardware platforms listed in the table below are provided with official adaptation libraries and sample code, and developers can directly use the corresponding resources for rapid development.<br>
-> In theory, any hardware platform with standard BLE capability can communicate with this controller. If your platform is not included in the list, you may refer to the library implementations and communication protocols of existing supported platforms for self-porting. The official team will also continuously evaluate and expand support for new platforms based on market demand and technical roadmap.
+> In theory, any hardware platform with standard BLE capability can communicate with this gamepad. If your platform is not included in the list, you may refer to the library implementations and communication protocols of existing supported platforms for self-porting. The official team will also continuously evaluate and expand support for new platforms based on market demand and technical roadmap.
 
 ### Native BLE Main Controller Platform
 
@@ -131,9 +132,9 @@ We provide a clean communication protocol, lightweight driver libraries, and a w
 
 ## Auto Power‑Off
 
-To conserve battery power, controllers **V2.0 and above** will automatically shut down when a **broadcast timeout** occurs:
+To conserve battery power, gamepads **V2.0 and above** will automatically shut down when a **broadcast timeout** occurs:
 
-- **Broadcast timeout shutdown**: If the controller stays in the **slow blinking** state (advertising and waiting for a connection) for **more than 1 minute** after power‑on without being connected, it will power off automatically to maximise coin cell battery life. The LED turns off, and you will need to toggle the power switch to `OFF` and then back to `ON` to restart.
+- **Broadcast timeout shutdown**: If the gamepad stays in the **slow blinking** state (advertising and waiting for a connection) for **more than 1 minute** after power‑on without being connected, it will power off automatically to maximise coin cell battery life. The LED turns off, and you will need to toggle the power switch to `OFF` and then back to `ON` to restart.
 
 ---
 
@@ -147,7 +148,7 @@ For detailed instructions, please refer to the [CodexPad Metadata Access Feature
 
 ### Method 2: Use Device Manager on a Windows PC
 
-1. Connect the CodexPad to your computer with a **USB data cable** and make sure the controller is **powered on**.
+1. Connect the CodexPad to your computer with a **USB data cable** and make sure the gamepad is **powered on**.
 
 1. Open **Device Manager**
 
@@ -171,11 +172,11 @@ For detailed instructions, please refer to the [CodexPad Metadata Access Feature
 
         ![assets/images/find_bluetooth_device_address/windows_device_manager/02_expand_com_ports.png](assets/images/en/find_bluetooth_device_address/windows_device_manager/02_expand_com_ports.png)
 
-1. Identify your controller
+1. Identify your gamepad
 
     - Look for one or more entries named **USB Serial Device (COMxx)**, where `xx` is a number.
 
-    - **How to tell which one is your controller**: If more than one such device appears, **unplug the controller’s USB cable** and see which entry disappears. Then **plug it back in** — the entry that reappears is your controller. Note down its COM port number (e.g., COM172).
+    - **How to tell which one is your gamepad**: If more than one such device appears, **unplug the gamepad’s USB cable** and see which entry disappears. Then **plug it back in** — the entry that reappears is your gamepad. Note down its COM port number (e.g., COM172).
 
 1. Open device properties
 
@@ -195,25 +196,25 @@ For detailed instructions, please refer to the [CodexPad Metadata Access Feature
 
     - The **Value** field will now display a string of information.
 
-    - Find the part that contains **CODEXPAD-C10_** — the 12 colon‑separated characters that follow it (e.g. `E4:66:E5:A2:24:5D`) are your controller’s Bluetooth Device Address.
+    - Find the part that contains **CODEXPAD-C10_** — the 12 colon‑separated characters that follow it (e.g. `E4:66:E5:A2:24:5D`) are your gamepad’s Bluetooth Device Address.
 
         ![assets/images/find_bluetooth_device_address/windows_device_manager/05_find_bluetooth_device_address.png](assets/images/en/find_bluetooth_device_address/windows_device_manager/05_find_bluetooth_device_address.png)
 
     - Carefully write down this address and keep it for future connections.
 
-1. Disconnect the controller from the computer.
+1. Disconnect the gamepad from the computer.
 
 ---
 
 ## Power Management
 
-To preserve battery life and avoid unnecessary drain, **always turn the power switch to OFF** when the controller is not in use for an extended period. Even when no buttons are pressed, the BLE module keeps advertising at intervals to remain connectable, which consumes power continuously. Manually switching off is the most effective way to maximise coin cell battery life.
+To preserve battery life and avoid unnecessary drain, **always turn the power switch to OFF** when the gamepad is not in use for an extended period. Even when no buttons are pressed, the BLE module keeps advertising at intervals to remain connectable, which consumes power continuously. Manually switching off is the most effective way to maximise coin cell battery life.
 
 ---
 
 ## USB Type‑C Interface Description
 
-The USB Type‑C port on this controller serves two purposes: ① powering the controller circuitry and ② virtual serial port communication (e.g., for obtaining the Bluetooth Device Address). **Note:** this port **does not** support battery charging. If the controller is running on USB power and the cable is suddenly disconnected, it will instantly switch to the coin cell battery. If the battery is already low, its voltage may sag under the sudden load, which can trigger a reset and restart. This is a normal characteristic of the power‑switching process, not a malfunction. For reliable operation, ensure the battery has sufficient charge or keep the USB connection active.
+The USB Type‑C port on this gamepad serves two purposes: ① powering the gamepad circuitry and ② virtual serial port communication (e.g., for obtaining the Bluetooth Device Address). **Note:** this port **does not** support battery charging. If the gamepad is running on USB power and the cable is suddenly disconnected, it will instantly switch to the coin cell battery. If the battery is already low, its voltage may sag under the sudden load, which can trigger a reset and restart. This is a normal characteristic of the power‑switching process, not a malfunction. For reliable operation, ensure the battery has sufficient charge or keep the USB connection active.
 
 ---
 
