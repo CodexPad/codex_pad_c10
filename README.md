@@ -88,29 +88,6 @@ We provide a clean communication protocol, lightweight driver libraries, and a w
 
 ---
 
-## Officially Supported Platforms
-
-> **Note**: All hardware platforms listed in the table below are provided with official adaptation libraries and sample code, and developers can directly use the corresponding resources for rapid development.<br>
-> In theory, any hardware platform with standard BLE capability can communicate with this gamepad. If your platform is not included in the list, you may refer to the library implementations and communication protocols of existing supported platforms for self-porting. The official team will also continuously evaluate and expand support for new platforms based on market demand and technical roadmap.
-
-### Native BLE Main Controller Platform
-
-| Main Controller Hardware Platform | Development Environment and Languages |
-| :--- | :--- |
-| <ul><li>ESP32</li><li>ESP32-S2</li><li>ESP32-S3</li><li>ESP32-C3</li><li>ESP32-C5</li><li>ESP32-C6</li><li>ESP32-H2</li><li>ESP32-P4</li></ul> | <ul><li>Arduino IDE（C/C++）</li><li>MicroPython</li></ul> |
-| <ul><li>Raspberry Pi Pico W</li><li>Raspberry Pi Pico 2 W</li></ul> | <ul><li>MicroPython</li></ul> |
-| <ul><li>micro:bit v2</li></ul> | <ul><li>MakeCode</li></ul> |
-| <ul><li>Windows 10</li><li>macOS</li><li>Linux（including embedded devices such as **Raspberry Pi**）</li></ul> | <ul><li>Python</li></ul> |
-
-### External BLE Module Solution
-
-| Hardware Combination | Development Environment and Languages |
-| :--- | :--- |
-| <ul><li>Arduino UNO + NL16 Bluetooth Module</li></ul> | <ul><li>Arduino IDE（C/C++）</li></ul> |
-| <ul><li>BLE UNO（built‑in NL16 module）</li></ul> | <ul><li>Arduino IDE（C/C++）</li></ul> |
-
----
-
 ## Powering On and Off
 
 - **Power on**: Set the power switch to `ON`. The LED indicator will begin to blink slowly and the device will start up.
@@ -192,11 +169,11 @@ For detailed instructions, please refer to the [CodexPad Metadata Access Feature
 
         ![assets/images/find_bluetooth_device_address/windows_device_manager/04_select_instance_path.png](assets/images/en/find_bluetooth_device_address/windows_device_manager/04_select_instance_path.png)
 
-1. Record the Bluetooth Device Address
+1. Record the Address
 
     - The **Value** field will now display a string of information.
 
-    - Find the part that contains **CODEXPAD-C10_** — the 12 colon‑separated characters that follow it (e.g. `E4:66:E5:A2:24:5D`) are your gamepad’s Bluetooth Device Address.
+    - Find the part that contains **CODEXPAD-C10_** — the 12 colon‑separated characters that follow it (e.g. `E4:66:E5:A2:24:5D`) are your gamepad’s Address.
 
         ![assets/images/find_bluetooth_device_address/windows_device_manager/05_find_bluetooth_device_address.png](assets/images/en/find_bluetooth_device_address/windows_device_manager/05_find_bluetooth_device_address.png)
 
@@ -226,11 +203,27 @@ To prevent irreversible damage from electrostatic discharge (ESD), **always make
 
 ## Connection and Usage Guide
 
-| Hardware Platform Characteristics | Typical Representative Platforms | Documentation | Core Features |
-| :--- | :--- | :--- | :--- |
-| Main controller has built-in BLE capability or a BLE coprocessor, and the software can directly call low-level BLE APIs to connect to devices | <ul><li>ESP32</li><li>ESP32-S2</li><li>ESP32-S3</li><li>ESP32-C3</li><li>ESP32-C5</li><li>ESP32-C6</li><li>ESP32-H2</li><li>ESP32-P4</li><li>Raspberry Pi Pico W</li><li>Raspberry Pi Pico 2 W</li><li>Windows 10</li><li>macOS</li><li>Linux（including embedded devices such as **Raspberry Pi**）</li><li>micro:bit v2</li></ul> | [CodexPad Connection and Usage Guide: Using the Built-in BLE of Hardware Platforms](../../../codex_pad_guide/blob/main/connection_guide_native_ble.md#codexpad-connection-and-usage-guide-using-the-built-in-ble-of-hardware-platforms) | No external module required; libraries and examples provided for direct programming use |
-| Main controller (e.g. STM32/Arduino) lacks Bluetooth and requires an external Bluetooth-to-Serial module (connected to TX/RX pins) | <ul><li>Arduino UNO + NL16</li><li>BLE UNO (same as Arduino UNO + NL16)</li><li>STM32 + HC05</li><li>Arduino UNO + HC05</li></ul> | [CodexPad Connection and Usage Guide: Using BLE to Serial Module](../../../codex_pad_guide/blob/main/connection_guide_ble_uart.md#codexpad-connection-and-usage-guide-using-ble-to-serial-module) | **Passthrough mode**; data forwarded via serial port |
-| Main controller (e.g. STM32/Arduino) lacks Bluetooth and requires a CodexPad dedicated receiver on the I2C bus (under development) | Any hardware platform supporting I2C | [CodexPad Connection and Usage Guide: Using the Dedicated BLE to I2C Receiver](../../../codex_pad_guide/blob/main/connection_guide_i2c_receiver.md#connection_guide_i2c_receiver.md#codexpad-connection-and-usage-guide-using-the-dedicated-ble-to-i2c-receiver) | |
+All hardware platforms listed in the table below are provided with official adaptation libraries and sample code, and developers can directly use the corresponding resources for rapid development.  
+In theory, any hardware platform with standard BLE capability can communicate with this gamepad. If your platform is not included in the list, you may refer to the library implementations and communication protocols of existing supported platforms for self-porting. The official team will also continuously evaluate and expand support for new platforms based on market demand and technical roadmap.
+
+### Native BLE Main Controller Platform
+
+Main controller has built-in BLE capability or a BLE coprocessor, and the software can directly call low-level BLE APIs to connect to devices
+
+| Main Controller Hardware Platform | Development Environment and Languages | Documentation |
+| :--- | :--- | :--- |
+| <ul><li>ESP32</li><li>ESP32-S3</li><li>ESP32-C3</li><li>ESP32-C5</li><li>ESP32-C6</li><li>ESP32-H2</li></ul> | Arduino IDE（C/C++） | [CodexPad Arduino Lib](../../../codex_pad_arduino_lib/blob/main/README.md#codexpad-arduino-lib) |
+| <ul><li>ESP32</li><li>ESP32-S3</li><li>ESP32-C3</li><li>ESP32-C5</li><li>ESP32-C6</li><li>ESP32-H2</li><li>Raspberry Pi Pico W</li><li>Raspberry Pi Pico 2 W</li></ul> | MicroPython | [CodexPad MicroPython Lib](../../../codex_pad_mpy_lib/blob/main/README.md#codexpad-micropython-lib) |
+| <ul><li>micro:bit v2</li></ul> | MakeCode | [CodexPad Extension for micro:bit MakeCode](../../../codex_pad_makecode_extension/blob/main/README.md#codexpad-extension-for-microbit-makecode) |
+| <ul><li>Windows 10</li><li>macOS</li><li>Linux（including embedded devices such as **Raspberry Pi**）</li></ul> | Python | [CodexPad Bleak Lib](../../../codex_pad_bleak_lib/blob/main/README.md#codexpad-bleak-lib) |
+
+### External BLE Module Solution
+
+Main controller (e.g. STM32/Arduino) lacks Bluetooth and requires an external Bluetooth-to-Serial module (connected to TX/RX pins)
+
+| Hardware Combination | Development Environment and Languages | Documentation |
+| :--- | :--- | :--- |
+| <ul><li>Arduino UNO + NL16 Bluetooth Module</li><li>BLE UNO（built‑in NL16 module）</li></ul> | <ul><li>Arduino IDE（C/C++）</li></ul> | [GamepadCodec Arduino lib](../../../gamepad_codec_arduino_lib/blob/main/README.md#gamepadcodec-arduino-library) |
 
 ---
 

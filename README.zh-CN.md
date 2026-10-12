@@ -88,29 +88,6 @@
 
 ---
 
-## 官方支持的平台
-
-> **说明**：下表所列均为官方已提供适配库与示例代码的硬件平台，开发者可直接使用对应资源进行快速开发。<br>
-> 理论上，任何具备标准 BLE 能力的硬件平台均可与本手柄通信。若您使用的平台未在列表中，可参考已有平台的库实现与通信协议进行自行移植；官方也将根据市场需求与技术规划，持续评估并扩展对新平台的支持。
-
-### 原生 BLE 主控平台
-
-| 主控硬件平台 | 开发环境与语言 |
-| :--- | :--- |
-| <ul><li>ESP32</li><li>ESP32-S2</li><li>ESP32-S3</li><li>ESP32-C3</li><li>ESP32-C5</li><li>ESP32-C6</li><li>ESP32-H2</li><li>ESP32-P4</li></ul> | <ul><li>Arduino IDE（C/C++）</li><li>MicroPython</li><li>Mind+</li><li>Mixly（米思齐）</li></ul> |
-| <ul><li>Raspberry Pi Pico W</li><li>Raspberry Pi Pico 2 W</li></ul> | <ul><li>MicroPython</li></ul> |
-| <ul><li>micro:bit v2</li></ul> | <ul><li>MakeCode</li></ul> |
-| <ul><li>Windows 10</li><li>macOS</li><li>Linux（如**树莓派**等嵌入式设备）</li></ul> | <ul><li>Python</li></ul> |
-
-### 外接 BLE 模块方案
-
-| 硬件组合 | 开发环境与语言 |
-| :--- | :--- |
-| <ul><li>Arduino UNO + NL16 蓝牙模块</li></ul> | <ul><li>Arduino IDE（C/C++）</li></ul> |
-| <ul><li>BLE UNO（内置 NL16 模块）</li></ul> | <ul><li>Arduino IDE（C/C++）</li></ul> |
-
----
-
 ## 开机与关机
 
 - **开机**：将手柄电源开关拨动至`ON`端打开电源，指示灯开始慢闪，设备启动。
@@ -138,9 +115,9 @@
 
 ---
 
-## 获取Bluetooth Device Address(BD_ADDR)
+## 获取蓝牙设备地址
 
-在与CodexPad连接时，可能需要使用到设备的**唯一**标识：**Bluetooth Device Address**。它如同设备的“身份证号”，由12位十六进制字符组成，以冒号分隔，格式为`XX:XX:XX:XX:XX:XX`（其中`X`为 0-9 或 A-F），例如：`E4:66:E5:A2:24:5D`。
+在与手柄连接时，可能需要使用到设备的**唯一**标识：**蓝牙设地址（Bluetooth Device Address）**。它如同设备的“身份证号”，由12位十六进制字符组成，以冒号分隔，格式为`XX:XX:XX:XX:XX:XX`（其中`X`为 0-9 或 A-F），例如：`E4:66:E5:A2:24:5D`。
 
 ### 获取方法一(推荐)：通过元数据访问功能获取
 
@@ -148,7 +125,7 @@
 
 ### 获取方式二：通过Windows电脑的设备管理器获取
 
-1. 使用**数据线**将CodexPad与电脑连接，并将CodexPad置于**开机**状态
+1. 使用**数据线**将手柄与电脑通过USB数据线连接，并将手柄置于**开机**状态
 
 1. 启动“**设备管理器**”
 
@@ -192,15 +169,15 @@
 
         ![assets/images/find_bluetooth_device_address/windows_device_manager/04_select_instance_path.png](assets/images/zh-CN/find_bluetooth_device_address/windows_device_manager/04_select_instance_path.png)
 
-1. 记录Bluetooth Device Address
+1. 记录地址
 
     - 此时，“**值(V)**”下方的文本框中将显示一串信息
 
-    - 在这串信息中，找到“**CODEXPAD-C10_**”字段，其后面紧跟的由冒号分隔的12位字符（例如：`E4:66:E5:A2:24:5D`）即为你手柄的Bluetooth Device Address
+    - 在这串信息中，找到“**CODEXPAD-C10_**”字段，其后面紧跟的由冒号分隔的12位字符（例如：`E4:66:E5:A2:24:5D`）即为你手柄的地址
 
         ![assets/images/find_bluetooth_device_address/windows_device_manager/05_find_bluetooth_device_address.png](assets/images/zh-CN/find_bluetooth_device_address/windows_device_manager/05_find_bluetooth_device_address.png)
 
-    - 请准确抄录这串Bluetooth Device Address并妥善保管，用于后续连接
+    - 请准确抄录这串地址并妥善保管，用于后续连接
 
 1. 断开手柄与电脑的连接
 
@@ -214,7 +191,7 @@
 
 ## USB Type-C 接口说明
 
-本手柄的 USB Type-C 接口主要用于 ① 为手柄电路供电 和 ② 虚拟串口通信（如用于获取Bluetooth Device Address）。需要特别注意的是，此接口不具备电池充电功能。当手柄通过 USB 线缆供电运行时，若突然拔下线缆，系统会瞬间切换至纽扣电池供电。如果纽扣电池电量已处于较低水平，其电压在负载突然加大的瞬间可能无法及时响应，导致电压骤降而引发系统复位重启。此现象属于电源切换过程中的正常特性，并非设备故障。建议在需稳定使用的场景下，确保使用电量充足的电池或保持 USB 供电连接。
+本手柄的 USB Type-C 接口主要用于 ① 为手柄电路供电 和 ② 虚拟串口通信（如用于获取蓝牙设备地址）。需要特别注意的是，此接口不具备电池充电功能。当手柄通过 USB 线缆供电运行时，若突然拔下线缆，系统会瞬间切换至纽扣电池供电。如果纽扣电池电量已处于较低水平，其电压在负载突然加大的瞬间可能无法及时响应，导致电压骤降而引发系统复位重启。此现象属于电源切换过程中的正常特性，并非设备故障。建议在需稳定使用的场景下，确保使用电量充足的电池或保持 USB 供电连接。
 
 ---
 
@@ -224,13 +201,33 @@
 
 ---
 
-## 连接使用指南
+## 连接与使用
 
-| 硬件平台特征 | 典型代表平台 | 文档 | 核心特点 |
-| :--- | :--- | :--- | :--- |
-| 主控自带BLE功能或者有BLE协处理器，同时软件可以自己调用底层BLE API进行设备连接 | <ul><li>ESP32</li><li>ESP32-S2</li><li>ESP32-S3</li><li>ESP32-C3</li><li>ESP32-C5</li><li>ESP32-C6</li><li>ESP32-H2</li><li>ESP32-P4</li><li>Raspberry Pi Pico W</li><li>Raspberry Pi Pico 2 W</li><li>Windows 10</li><li>macOS</li><li>Linux（如**树莓派**等嵌入式设备）</li><li>micro:bit v2</li></ul> | [CodexPad连接使用指南：使用硬件平台内置BLE](../../../codex_pad_guide/blob/main/connection_guide_native_ble.zh-CN.md#codexpad连接使用指南使用硬件平台内置ble) | 无需外接模块，提供了库和示例，直接编程使用 |
-| 主控（如 STM32/Arduino）没有蓝牙，需要外接蓝牙转串口模块（插在 TX/RX 引脚上） | <ul><li>Arduino UNO + NL16</li><li>BLE UNO(同Arduino UNO + NL16)</li><li>STM32 + HC05</li><li>Arduino UNO + HC05</li></ul> | [CodexPad连接使用指南：使用BLE转串口模块](../../../codex_pad_guide/blob/main/connection_guide_ble_uart.zh-CN.md#codexpad连接使用指南使用ble转串口模块) | **透传模式**，数据通过串口转发 |
-| 主控（如 STM32/Arduino）没有蓝牙，需要在I2C总线上外接CodexPad专用接收器（开发中） | 任意支持I2C的硬件平台 | [CodexPad连接使用指南：使用专用的BLE转I2C接收器](../../../codex_pad_guide/blob/main/connection_guide_i2c_receiver.zh-CN.md#codexpad连接使用指南使用专用的ble转i2c接收器) | |
+下表所列均为官方已提供适配库与示例代码的硬件平台，开发者可直接使用对应资源进行快速开发。  
+理论上，任何具备标准 BLE 能力的硬件平台均可与本手柄通信。若您使用的平台未在列表中，可参考已有平台的库实现与通信协议进行自行移植；官方也将根据市场需求与技术规划，持续评估并扩展对新平台的支持。
+
+### 原生 BLE 主控平台
+
+主控自带BLE功能或者有BLE协处理器，同时软件可以自己调用底层BLE API进行设备连接
+
+| 主控硬件平台 | 开发环境与语言 | 文档链接 |
+| :--- | :--- | :--- |
+| <ul><li>ESP32</li><li>ESP32-S3</li><li>ESP32-C3</li><li>ESP32-C5</li><li>ESP32-C6</li><li>ESP32-H2</li></ul> | Arduino IDE（C/C++） | [CodexPad Arduino Lib](../../../codex_pad_arduino_lib/blob/main/README.zh-CN.md#codexpad-arduino-lib) |
+| <ul><li>ESP32</li><li>ESP32-S3</li><li>ESP32-C3</li><li>ESP32-C5</li><li>ESP32-C6</li><li>ESP32-H2</li><li>Raspberry Pi Pico W</li><li>Raspberry Pi Pico 2 W</li></ul> | MicroPython | [CodexPad MicroPython Lib](../../../codex_pad_mpy_lib/blob/main/README.zh-CN.md#codexpad-micropython-lib) |
+| <ul><li>ESP32</li><li>ESP32-S3</li></ul> | Mixly（米思齐） | <ul><li>[CodexPad Mixly库](https://gitee.com/emakefun_mixly_lib/codexpad/releases/download/V0.0.1/codexpad_Mixly%E5%BA%93.zip)</li><li>[CodexPad Mixly示例程序](https://gitee.com/emakefun_mixly_lib/codexpad/releases/download/V0.0.1/codexpad%E8%93%9D%E7%89%99%E6%89%8B%E6%9F%84Mixly%E7%A4%BA%E4%BE%8B.zip)</li></ul> |
+| <ul><li>ESP32</li><li>ESP32-S3</li></ul> | Mind+ | <ul><li>[点击查看Mind+导入用户库方法](https://mindplus.dfrobot.com.cn/extensions-user-libraries)</li><li>[点击下载CodexPad Mind+示例程序](https://gitee.com/emakefun_midplus_lib/codexpad/releases/download/V0.0.1/codexPad%E6%89%8B%E6%9F%84%E6%B5%8B%E8%AF%95%E7%A4%BA%E4%BE%8B.zip)</li></ul> |
+| <ul><li>micro:bit v2</li></ul> | MakeCode | [CodexPad Extension for micro:bit MakeCode](../../../codex_pad_makecode_extension/blob/main/READMD.zh-CN.md#codexpad-extension-for-microbit-makecode) |
+| <ul><li>Windows 10</li><li>macOS</li><li>Linux（如**树莓派**等嵌入式设备）</li></ul> | Python | [CodexPad Bleak Lib](../../../codex_pad_bleak_lib/blob/main/README.zh-CN.md#codexpad-bleak-lib) |
+
+### 外接 BLE 模块方案
+
+主控（如 STM32/Arduino）没有蓝牙，需要外接蓝牙转串口模块（插在 TX/RX 引脚上）
+
+| 硬件组合 | 开发环境与语言 | 文档链接 |
+| :--- | :--- | :--- |
+| <ul><li>Arduino UNO + NL16 蓝牙模块</li><li>BLE UNO（内置 NL16 模块）</li></ul> | Arduino IDE（C/C++） | [GamepadCodec Arduino lib](../../../gamepad_codec_arduino_lib/blob/main/README.zh-CN.md#gamepadcodec-arduino-library) |
+| <ul><li>Arduino UNO + NL16 蓝牙模块</li><li>BLE UNO（内置 NL16 模块）</li></ul> | Mixly（米思齐） | [Mixly 库与示例程序](https://gitee.com/emakefun_mixly_lib/codexpad-ble/repository/archive/master.zip) |
+| <ul><li>Arduino UNO + NL16 蓝牙模块</li><li>BLE UNO（内置 NL16 模块）</li></ul> | Mind+ | <ul><li>[点击查看Mind+导入用户库方法](https://mindplus.dfrobot.com.cn/extensions-user-libraries)</li><li>[用户库链接](https://gitee.com/emakefun_midplus_lib/codexpad-ble)</li></ul> |
 
 ---
 
